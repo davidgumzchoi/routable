@@ -1,12 +1,12 @@
 import { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import dynamic from 'next/dynamic';
 
 import Issue from './Issue';
-import Sidebar from './Sidebar';
+const SidebarNoSSR = dynamic(import('./Sidebar'), { ssr: false });
 
 import WrapperStyles from './../styles/WrapperStyles';
 
-// a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
@@ -55,6 +55,7 @@ export default class Issues extends Component {
       .then(data => {
         console.log(data.items);
         this.setState({ isLoaded: true, items: data.items });
+        localStorage.setItem('issues', JSON.stringify(data.items));
       })
       .catch(error => {
         console.error(error);
@@ -86,7 +87,7 @@ export default class Issues extends Component {
     const { isLoaded, items } = this.state;
     return (
       <WrapperStyles>
-        <Sidebar getForm={this.setForm} />
+        <SidebarNoSSR getForm={this.setForm} />
         {isLoaded ? (
           <DragDropContext onDragEnd={this.onDragEnd}>
             <Droppable droppableId="droppable">
@@ -113,7 +114,7 @@ export default class Issues extends Component {
             </Droppable>
           </DragDropContext>
         ) : (
-          'Please submit Username and API Key to sort Issues'
+          'Loading...'
         )}
       </WrapperStyles>
     );

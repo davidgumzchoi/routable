@@ -1,5 +1,6 @@
-import Issues from '../components/Issues';
+import dynamic from 'next/dynamic';
+const IssuesNoSSR = dynamic(import('../components/Issues'), { ssr: false });
 
-const Home = () => <Issues />;
+const Home = () => <IssuesNoSSR />;
 
 export default Home;

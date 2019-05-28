@@ -1,18 +1,5 @@
 # Routable Frontend Coding Challenge 2019
 
-## Initial Setup
-
-1. Initialize project, install dependencies, and add scripts
-
-```
-npm i --save next react react-dom styled-components
-```
-
-2. Add scripts for npm to utilize Next.js CLI
-3. Create a `/pages` folder to handle routing
-4. Add styled components and a .babelrc plugin file
-5. Custom \_document.js file to retrieve styles and display meta info
-
 ## Dev Setup
 
 1. Install dependencies
@@ -40,3 +27,18 @@ npm run test
 - `styled-components` to utilize ES6 and Sass features in CSS
 - Use `react-beautiful-dnd` to perform drag and drop
 - `jest` for simple function test
+
+---
+
+## Initial Setup
+
+1. Initialize project, install dependencies, and add scripts
+
+```
+npm i --save next react react-dom styled-components react-beautiful-dnd
+```
+
+2. Add scripts for npm to utilize Next.js CLI
+3. Create a `/pages` folder to handle routing
+4. Add styled components and a .babelrc plugin file
+5. Custom \_document.js file to retrieve styles and display meta info

@@ -24,6 +24,11 @@ const SidebarStyles = styled.form`
       &:hover {
         opacity: 0.8;
       }
+
+      &[disabled] {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
     }
   }
 `;
