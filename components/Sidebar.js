@@ -4,7 +4,10 @@ import Link from 'next/link';
 import SidebarStyles from './../styles/SidebarStyles';
 
 export default class Sidebar extends Component {
-  state = { username: localStorage.getItem('username') || 'wesbos', token: localStorage.getItem('token') || '' };
+  state = {
+    username: localStorage.getItem('username') || 'wesbos',
+    token: localStorage.getItem('token') || ''
+  };
 
   handleInputChange = event => {
     const target = event.target;

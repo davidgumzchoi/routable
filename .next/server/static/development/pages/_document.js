@@ -2248,31 +2248,31 @@ function (_Document) {
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("html", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21
+          lineNumber: 14
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_8__["Head"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 15
         },
         __self: this
       }, this.props.styleTags), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("body", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 16
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_8__["Main"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 17
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_8__["NextScript"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 18
         },
         __self: this
       })));
@@ -2281,23 +2281,19 @@ function (_Document) {
     key: "getInitialProps",
     value: function getInitialProps(_ref) {
       var renderPage = _ref.renderPage;
-      // Step 1: Create a ServerStyleSheet
-      var sheet = new styled_components__WEBPACK_IMPORTED_MODULE_9__["ServerStyleSheet"](); // Step 2: Retrieve styles from components in page
-
+      var sheet = new styled_components__WEBPACK_IMPORTED_MODULE_9__["ServerStyleSheet"]();
       var page = renderPage(function (App) {
         return function (props) {
           return sheet.collectStyles(react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 10
+              lineNumber: 7
             },
             __self: this
           })));
         };
-      }); // Step 3: Extract the styles as <style> tags
-
-      var styleTags = sheet.getStyleElement(); // Step 4: Pass styleTags as a prop
-
+      });
+      var styleTags = sheet.getStyleElement();
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, page, {
         styleTags: styleTags
       });

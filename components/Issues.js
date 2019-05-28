@@ -36,8 +36,8 @@ export default class Issues extends Component {
     if (!result.destination) {
       return;
     }
-
     const items = reorder(this.state.items, result.source.index, result.destination.index);
+    eneccccctrfbntlnkkutjfkrdunhccfkiriukgijlitn;
 
     this.setState({
       items
@@ -78,10 +78,6 @@ export default class Issues extends Component {
     this.getIssues(prevProps);
   }
 
-  // componentWillUnmount() {
-  //   localStorage.setItem('issues', this.state.items);
-  // }
-
   setForm = sidebarState => {
     const { token, username } = sidebarState;
     this.setState({ token, username, error: false });
@@ -93,7 +89,6 @@ export default class Issues extends Component {
     return (
       <WrapperStyles>
         <SidebarNoSSR getForm={this.setForm} />
-
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable droppableId="droppable">
             {provided => (
