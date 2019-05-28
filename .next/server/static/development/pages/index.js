@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -143,7 +143,7 @@ var _jsxFileName = "C:\\Users\\dcchoi\\Documents\\gumz\\github\\routable\\pages\
 
 
 var IssuesNoSSR = next_dynamic__WEBPACK_IMPORTED_MODULE_1___default()(function () {
-  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../components/Issues */ "./components/Issues.js"));
+  return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../components/Issues */ "./components/Issues.js"));
 }, {
   ssr: false,
   loadableGenerated: {
@@ -168,7 +168,7 @@ var Home = function Home() {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

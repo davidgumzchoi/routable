@@ -3868,7 +3868,7 @@ var _jsxFileName = "C:\\Users\\dcchoi\\Documents\\gumz\\github\\routable\\pages\
 
 
 var IssuesNoSSR = next_dynamic__WEBPACK_IMPORTED_MODULE_1___default()(function () {
-  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../components/Issues */ "./components/Issues.js"));
+  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../components/Issues */ "./components/Issues.js"));
 }, {
   ssr: false,
   loadableGenerated: {
@@ -3893,7 +3893,7 @@ var Home = function Home() {
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cdcchoi%5CDocuments%5Cgumz%5Cgithub%5Croutable%5Cpages%5Cindex.js ***!
   \************************************************************************************************************************************************/
@@ -3916,5 +3916,5 @@ module.exports = dll_6dc2816e14fab51b8269;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

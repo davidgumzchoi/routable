@@ -1,32 +1,42 @@
 import styled from 'styled-components';
 
 const size = {
+  mobile: '500px',
   tablet: '768px',
   laptop: '1024px',
   desktop: '2560px'
 };
 
 export const device = {
+  mobile: `(min-width: ${size.mobile})`,
   tablet: `(min-width: ${size.tablet})`,
   laptop: `(min-width: ${size.laptop})`,
   desktop: `(min-width: ${size.desktop})`
 };
 
 const WrapperStyles = styled.div`
-  display: grid;
-  grid-template-columns: 20rem 40remrem;
-  grid-gap: 2rem;
+  @media ${device.mobile} {
+    display: grid;
+    grid-template-columns: 16rem 32rem;
+    grid-gap: 2rem;
+  }
 
   @media ${device.tablet} {
-    grid-template-columns: 20rem 60rem;
+    display: grid;
+    grid-template-columns: 20rem 54.8rem;
+    grid-gap: 2rem;
   }
 
   @media ${device.laptop} {
-    grid-template-columns: 20rem 118rem;
+    display: grid;
+    grid-template-columns: 20rem 80.4rem;
+    grid-gap: 2rem;
   }
 
   @media ${device.desktop} {
-    grid-template-columns: 20rem 100%;
+    display: grid;
+    grid-template-columns: 20rem 234rem;
+    grid-gap: 2rem;
   }
 `;
 

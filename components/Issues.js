@@ -27,7 +27,6 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 
 export default class Issues extends Component {
   state = {
-    isLoaded: false,
     items: [],
     username: '',
     token: ''
@@ -43,6 +42,7 @@ export default class Issues extends Component {
     this.setState({
       items
     });
+    localStorage.setItem('issues', JSON.stringify(items));
   };
 
   getIssues = () => {
@@ -54,28 +54,33 @@ export default class Issues extends Component {
       .then(response => response.json())
       .then(data => {
         console.log(data.items);
-        this.setState({ isLoaded: true, items: data.items });
+        this.setState({ items: data.items });
         localStorage.setItem('issues', JSON.stringify(data.items));
       })
       .catch(error => {
         console.error(error);
-        this.setState({ isLoaded: false, error });
       });
   };
 
   componentDidMount() {
-    this.getIssues();
+    const issues = JSON.parse(localStorage.getItem('issues'));
+    if (issues === undefined || issues === 'undefined') {
+      this.getIssues();
+    } else {
+      this.setState({ items: issues });
+    }
   }
 
   componentWillReceiveProps(prevProps) {
     if (prevProps === undefined) {
       return false;
     }
-    this.setState({
-      isLoaded: true
-    });
     this.getIssues(prevProps);
   }
+
+  // componentWillUnmount() {
+  //   localStorage.setItem('issues', this.state.items);
+  // }
 
   setForm = sidebarState => {
     const { token, username } = sidebarState;
@@ -84,38 +89,35 @@ export default class Issues extends Component {
   };
 
   render() {
-    const { isLoaded, items } = this.state;
+    const { items } = this.state;
     return (
       <WrapperStyles>
         <SidebarNoSSR getForm={this.setForm} />
-        {isLoaded ? (
-          <DragDropContext onDragEnd={this.onDragEnd}>
-            <Droppable droppableId="droppable">
-              {provided => (
-                <div {...provided.droppableProps} ref={provided.innerRef}>
-                  {items &&
-                    items.map((issue, index) => (
-                      <Draggable key={issue.id} draggableId={issue.id} index={index}>
-                        {(provided, snapshot) => (
-                          <div
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
-                          >
-                            <Issue issue={issue} />
-                          </div>
-                        )}
-                      </Draggable>
-                    ))}
-                  {provided.placeholder}
-                </div>
-              )}
-            </Droppable>
-          </DragDropContext>
-        ) : (
-          'Loading...'
-        )}
+
+        <DragDropContext onDragEnd={this.onDragEnd}>
+          <Droppable droppableId="droppable">
+            {provided => (
+              <div {...provided.droppableProps} ref={provided.innerRef}>
+                {items &&
+                  items.map((issue, index) => (
+                    <Draggable key={issue.id} draggableId={issue.id} index={index}>
+                      {(provided, snapshot) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
+                        >
+                          <Issue issue={issue} />
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
       </WrapperStyles>
     );
   }

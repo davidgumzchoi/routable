@@ -3,16 +3,16 @@
     {
       "id": "./components/Issue.js",
       "name": "./components/Issue.js",
-      "file": "static/chunks/2.js",
-      "publicPath": "static/chunks/2.js"
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
     }
   ],
   "./Sidebar": [
     {
       "id": "./components/Sidebar.js",
       "name": "./components/Sidebar.js",
-      "file": "static/chunks/1.js",
-      "publicPath": "static/chunks/1.js"
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
     }
   ],
   "./noop": [
