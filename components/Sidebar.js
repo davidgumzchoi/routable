@@ -1,9 +1,12 @@
 import { Component } from 'react';
 import Link from 'next/link';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { resetSidebar, setSidebar } from './../store/actions';
 import SidebarStyles from './../styles/SidebarStyles';
 
-export default class Sidebar extends Component {
+class Sidebar extends Component {
   state = {
     username: localStorage.getItem('username') || 'wesbos',
     token: localStorage.getItem('token') || ''
@@ -21,9 +24,25 @@ export default class Sidebar extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const { setSidebar } = this.props;
+    setSidebar();
+
     this.props.getForm(this.state);
     localStorage.setItem('username', this.state.username);
     localStorage.setItem('token', this.state.token);
+  };
+
+  reset = () => {
+    const { resetSidebar } = this.props;
+    resetSidebar();
+
+    localStorage.setItem('username', '');
+    localStorage.setItem('token', '');
+
+    // this.setState({
+    //   username: '',
+    //   token: ''
+    // });
   };
 
   render() {
@@ -41,7 +60,20 @@ export default class Sidebar extends Component {
           <input type="text" name="token" value={this.state.token} onChange={this.handleInputChange} required />
         </label>
         <input type="submit" value="Submit" disabled={!this.state.token.length || !this.state.username.length} />
+        <input type="reset" value="Reset" onClick={this.reset} />
       </SidebarStyles>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  username: state.username,
+  token: state.token
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({ resetSidebar, setSidebar }, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Sidebar);

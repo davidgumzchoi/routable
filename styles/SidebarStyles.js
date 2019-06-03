@@ -30,6 +30,10 @@ const SidebarStyles = styled.form`
         opacity: 0.5;
       }
     }
+
+    &[type='reset'] {
+      cursor: pointer;
+    }
   }
 `;
 

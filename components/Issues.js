@@ -25,7 +25,7 @@ const getItemStyle = (isDragging, draggableStyle) => ({
   ...draggableStyle
 });
 
-export default class Issues extends Component {
+class Issues extends Component {
   state = {
     items: [],
     username: '',
@@ -117,3 +117,5 @@ export default class Issues extends Component {
     );
   }
 }
+
+export default Issues;
