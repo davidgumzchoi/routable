@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { reducer } from './reducers';
-import { initialState, actionTypes } from './types';
+import { actionTypes } from './types';
 
 // ACTIONS
 export const resetSidebar = () => {

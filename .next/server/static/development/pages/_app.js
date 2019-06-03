@@ -1922,7 +1922,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actionTypes", function() { return actionTypes; });
 var initialState = {
-  username: '',
+  username: 'wesbos',
   token: ''
 };
 var actionTypes = {

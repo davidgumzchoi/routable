@@ -1,5 +1,5 @@
 export const initialState = {
-  username: '',
+  username: 'davidgumzchoi',
   token: ''
 };
 
